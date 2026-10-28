@@ -1,12 +1,12 @@
-curl -X GET -H "Accept: application/json" http://localhost:8080/accounts
+curl -i -X GET http://127.0.0.1:5000/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"name":"John Doe","email":"john@doe.com","address":"123 Main St.","phone_number":"555-1212"}'
 
-[
-  {
-    "address": "123 Main St, New York, NY",
-    "date_joined": "2026-10-21",
-    "email": "johndoe@example.com",
-    "id": 1,
-    "name": "John Doe",
-    "phone_number": "123-456-7890"
-  }
-]
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Tue, 07 Oct 2025 04:03:53 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 130
+
+{"address":"123 Main St.","date_joined":"2025-10-07","email":"john@doe.com","id":1,"name":"John Doe","phone_number":"555-1212"}

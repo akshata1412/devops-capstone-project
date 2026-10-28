@@ -109,13 +109,29 @@ def render_kanban_board(filename, columns_data, active_sprint_title="Sprint 1"):
             title = card["title"]
             draw.text((col_x + 16, card_y + 6), f"#{issue_num}", fill=TXT_MUTED, font=FONT_BADGE)
             
-            # Shorten title if too long
-            display_title = title if len(title) <= 32 else title[:30] + "..."
-            draw.text((col_x + 16, card_y + 22), display_title, fill=TXT_PRIMARY, font=FONT_CARD_TITLE)
+            # Multi-line word wrapping so no titles are truncated
+            words = title.split()
+            title_lines = []
+            cur_line = ""
+            for word in words:
+                test_line = (cur_line + " " + word).strip()
+                if len(test_line) * 7.5 < (col_width - 32):
+                    cur_line = test_line
+                else:
+                    if cur_line:
+                        title_lines.append(cur_line)
+                    cur_line = word
+            if cur_line:
+                title_lines.append(cur_line)
+
+            ty = card_y + 20
+            for tl in title_lines:
+                draw.text((col_x + 16, ty), tl, fill=TXT_PRIMARY, font=FONT_CARD_TITLE)
+                ty += 16
 
             # Badges row (labels, estimate, sprint)
             bx = col_x + 16
-            by = card_y + 50
+            by = max(ty + 4, card_y + 52)
 
             # Label badge
             lbl = card.get("label")
@@ -142,7 +158,8 @@ def render_kanban_board(filename, columns_data, active_sprint_title="Sprint 1"):
                 draw_rounded_rect(draw, [bx, by, bx + w, by + 18], 4, fill=SPRINT_BG)
                 draw.text((bx + 4, by + 2), sprint, fill=SPRINT_FG, font=FONT_BADGE)
 
-            card_y += c_height + 8
+            c_actual_height = max(80, by + 24 - card_y)
+            card_y += c_actual_height + 8
 
     base = os.path.splitext(filename)[0]
     img.save(base + ".png", "PNG")
@@ -163,24 +180,21 @@ U8 = {"id": 8, "title": "Containerize your microservice using Docker", "label": 
 U9 = {"id": 9, "title": "Deploy your Docker image to Kubernetes", "label": "Enhancement", "estimate": 5, "sprint": "Sprint 3"}
 U10 = {"id": 10, "title": "Create a CD pipeline to automate deployment to Kubernetes", "label": "Enhancement", "estimate": 8, "sprint": "Sprint 3"}
 
-# Stripped down copies for initial phases
-U_ALL_RAW = [
-    {"id": 1, "title": "Setting up the development environment"},
+# The exact 7 required user stories for Task 3: planning-userstories-done
+U_7_REQUIRED = [
+    {"id": 1, "title": "Set up the development environment"},
     {"id": 2, "title": "Read an account from the service"},
-    {"id": 3, "title": "List all accounts in the service"},
-    {"id": 4, "title": "Update an account in the service"},
-    {"id": 5, "title": "Delete an account from the service"},
-    {"id": 6, "title": "Need the ability to automate continuous integration checks"},
-    {"id": 7, "title": "Need to add security headers and CORS policies"},
-    {"id": 8, "title": "Containerize your microservice using Docker"},
-    {"id": 9, "title": "Deploy your Docker image to Kubernetes"},
-    {"id": 10, "title": "Create a CD pipeline to automate deployment to Kubernetes"},
+    {"id": 3, "title": "Update an account in the service"},
+    {"id": 4, "title": "Delete an account from the service"},
+    {"id": 5, "title": "List all accounts in the service"},
+    {"id": 6, "title": "Containerize your microservice using Docker"},
+    {"id": 7, "title": "Deploy your Docker image to Kubernetes"},
 ]
 
 # Task 3: planning-userstories-done.png
-# All user stories from 'New Issues' column on Kanban board
+# All seven required user stories from 'New Issues' column on Kanban board
 render_kanban_board("planning-userstories-done.png", {
-    "New Issues": U_ALL_RAW,
+    "New Issues": U_7_REQUIRED,
     "Ice Box": [],
     "Product Backlog": [],
     "Sprint Backlog": [],

@@ -1,10 +1,12 @@
-curl -X PUT -H "Content-Type: application/json" -d '{"name":"John Doe Updated","email":"johndoe_updated@example.com","address":"456 Elm St, New York, NY","phone_number":"987-654-3210"}' http://localhost:8080/accounts/1
+curl -i -X PUT http://127.0.0.1:5000/accounts/1 \
+  -H "Content-Type: application/json" \
+  -d '{"name":"John Doe","email":"john@doe.com","address":"123 Main St.","phone_number":"555-1111"}'
 
-{
-  "address": "456 Elm St, New York, NY",
-  "date_joined": "2026-10-21",
-  "email": "johndoe_updated@example.com",
-  "id": 1,
-  "name": "John Doe Updated",
-  "phone_number": "987-654-3210"
-}
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Wed, 02 Nov 2022 08:30:14 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 128
+
+{"address":"123 Main St.","date_joined":"2022-11-02","email":"john@doe.com","id":1,"name":"John Doe","phone_number":"555-1111"}
