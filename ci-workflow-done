@@ -10,7 +10,7 @@ Status: Downloaded newer image for postgres:alpine
 Container postgres is running and healthy on port 5432.
 
 Run actions/checkout@v3
-Syncing repository: yashdeshmukh2845/devops-capstone-project
+Syncing repository: akshata1412/devops-capstone-project
 Getting Git version info
 Copying '/home/runner/work/_actions/actions/checkout/v3' to '/home/runner/work/devops-capstone-project/devops-capstone-project'
 /usr/bin/git version

@@ -2,13 +2,13 @@
 [clone : clone] + ['[' '!' -d /workspace/output/.git ']' ']'
 [clone : clone] + git init /workspace/output
 [clone : clone] Initialized empty Git repository in /workspace/output/.git/
-[clone : clone] + git remote add origin https://github.com/yashdeshmukh2845/devops-capstone-project.git
+[clone : clone] + git remote add origin https://github.com/akshata1412/devops-capstone-project.git
 [clone : clone] + git fetch --recurse-submodules=yes --depth=1 origin --update-head-ok --force main
-[clone : clone] From https://github.com/yashdeshmukh2845/devops-capstone-project
+[clone : clone] From https://github.com/akshata1412/devops-capstone-project
 [clone : clone]  * branch            main       -> FETCH_HEAD
 [clone : clone]  * [new branch]      main       -> origin/main
 [clone : clone] + git checkout -q FETCH_HEAD
-[clone : clone] Successfully cloned repository https://github.com/yashdeshmukh2845/devops-capstone-project.git
+[clone : clone] Successfully cloned repository https://github.com/akshata1412/devops-capstone-project.git
 [lint : flake8] Running linting with flake8...
 [lint : flake8] flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
 [lint : flake8] 0

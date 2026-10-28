@@ -54,7 +54,7 @@ def render_kanban_board(filename, columns_data, active_sprint_title="Sprint 1"):
     draw.rectangle([0, 0, WIDTH, 65], fill=HEADER_BG, outline=BORDER_COLOR, width=1)
     
     # Project title
-    draw.text((30, 16), "yashdeshmukh2845 / devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((30, 16), "akshata1412 / devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
     draw.text((350, 18), "/  Accounts Service Kanban Board", fill=COL_HEADER_TXT, font=FONT_TITLE)
 
     # Sub-tabs
