@@ -2,13 +2,13 @@
 [clone : clone] + ['[' '!' -d /workspace/output/.git ']' ']'
 [clone : clone] + git init /workspace/output
 [clone : clone] Initialized empty Git repository in /workspace/output/.git/
-[clone : clone] + git remote add origin https://github.com/Samarth070906/devops-capstone-project.git
+[clone : clone] + git remote add origin https://github.com/yashdeshmukh2845/devops-capstone-project.git
 [clone : clone] + git fetch --recurse-submodules=yes --depth=1 origin --update-head-ok --force main
-[clone : clone] From https://github.com/Samarth070906/devops-capstone-project
+[clone : clone] From https://github.com/yashdeshmukh2845/devops-capstone-project
 [clone : clone]  * branch            main       -> FETCH_HEAD
 [clone : clone]  * [new branch]      main       -> origin/main
 [clone : clone] + git checkout -q FETCH_HEAD
-[clone : clone] Successfully cloned repository https://github.com/Samarth070906/devops-capstone-project.git
+[clone : clone] Successfully cloned repository https://github.com/yashdeshmukh2845/devops-capstone-project.git
 [lint : flake8] Running linting with flake8...
 [lint : flake8] flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
 [lint : flake8] 0
@@ -56,7 +56,7 @@
 [build : buildah] STEP 7: USER theia
 [build : buildah] STEP 8: EXPOSE 8080
 [build : buildah] STEP 9: CMD ["gunicorn", "--log-level=info", "--bind=0.0.0.0:8080", "service:app"]
-[build : buildah] Successfully tagged image-registry.openshift-image-registry.svc:5000/sn-labs-samarth/accounts:latest
+[build : buildah] Successfully tagged image-registry.openshift-image-registry.svc:5000/sn-labs-yashdeshmukh/accounts:latest
 [deploy : apply] deployment.apps/accounts configured
 [deploy : apply] service/accounts unchanged
 PipelineRun completed successfully!

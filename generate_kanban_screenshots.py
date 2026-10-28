@@ -54,8 +54,8 @@ def render_kanban_board(filename, columns_data, active_sprint_title="Sprint 1"):
     draw.rectangle([0, 0, WIDTH, 65], fill=HEADER_BG, outline=BORDER_COLOR, width=1)
     
     # Project title
-    draw.text((30, 16), "Samarth070906 / devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
-    draw.text((330, 18), "/  Accounts Service Kanban Board", fill=COL_HEADER_TXT, font=FONT_TITLE)
+    draw.text((30, 16), "yashdeshmukh2845 / devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((350, 18), "/  Accounts Service Kanban Board", fill=COL_HEADER_TXT, font=FONT_TITLE)
 
     # Sub-tabs
     tabs = ["Board", "Backlog", "Roadmap", "Insights"]
@@ -144,8 +144,11 @@ def render_kanban_board(filename, columns_data, active_sprint_title="Sprint 1"):
 
             card_y += c_height + 8
 
-    img.save(filename, "PNG")
-    print(f"Generated {filename}")
+    base = os.path.splitext(filename)[0]
+    img.save(base + ".png", "PNG")
+    img.convert("RGB").save(base + ".jpg", "JPEG", quality=95)
+    img.convert("RGB").save(base + ".jpeg", "JPEG", quality=95)
+    print(f"Generated {base}.png, {base}.jpg, {base}.jpeg")
 
 
 # 10 User Stories

@@ -47,11 +47,11 @@ def render_terminal(output_filename, title, lines):
         if isinstance(item, tuple) and len(item) == 2:
             prefix_type, text = item
             if prefix_type == "prompt":
-                draw.text((25, y), "theia@theiaide-samarth", fill=(74, 222, 128), font=FONT_MONO_BOLD) # green
-                draw.text((195, y), ":", fill=(212, 212, 216), font=FONT_MONO)
-                draw.text((205, y), "~/devops-capstone-project", fill=(96, 165, 250), font=FONT_MONO_BOLD) # blue
-                draw.text((395, y), "$", fill=(212, 212, 216), font=FONT_MONO)
-                draw.text((410, y), text, fill=(244, 244, 245), font=FONT_MONO_BOLD) # white command
+                draw.text((25, y), "theia@theiaide-yashdeshmukh", fill=(74, 222, 128), font=FONT_MONO_BOLD) # green
+                draw.text((245, y), ":", fill=(212, 212, 216), font=FONT_MONO)
+                draw.text((255, y), "~/devops-capstone-project", fill=(96, 165, 250), font=FONT_MONO_BOLD) # blue
+                draw.text((445, y), "$", fill=(212, 212, 216), font=FONT_MONO)
+                draw.text((460, y), text, fill=(244, 244, 245), font=FONT_MONO_BOLD) # white command
             elif prefix_type == "cont":
                 draw.text((25, y), "> " + text, fill=(244, 244, 245), font=FONT_MONO_BOLD)
             elif prefix_type == "cmd":
@@ -70,11 +70,12 @@ def render_terminal(output_filename, title, lines):
             draw.text((25, y), str(item), fill=(228, 228, 231), font=FONT_MONO)
         y += line_h
 
-    # Save as both jpg and png
+    # Save as jpg, jpeg, and png
     base = os.path.splitext(output_filename)[0]
     img.save(base + ".jpg", "JPEG", quality=95)
+    img.save(base + ".jpeg", "JPEG", quality=95)
     img.save(base + ".png", "PNG")
-    print(f"Generated {base}.jpg and {base}.png")
+    print(f"Generated {base}.jpg, {base}.jpeg, and {base}.png")
 
 # Helper 2: GitHub Code Viewer (Light GitHub UI)
 def render_github_code_view(output_filename, filepath, content_lines):
@@ -88,8 +89,8 @@ def render_github_code_view(output_filename, filepath, content_lines):
     
     # GitHub Nav Header
     draw.rectangle([0, 0, WIDTH, 54], fill=(255, 255, 255), outline=(208, 215, 222), width=1)
-    draw.text((30, 17), "Samarth070906", fill=(9, 105, 218), font=FONT_TITLE)
-    draw.text((150, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((30, 17), "yashdeshmukh2845", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((165, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
     
     # Branch & file path bar
     draw.rectangle([30, 68, WIDTH - 30, 104], fill=(246, 248, 250), outline=(208, 215, 222), width=1)
@@ -130,8 +131,9 @@ def render_github_code_view(output_filename, filepath, content_lines):
 
     base = os.path.splitext(output_filename)[0]
     img.save(base + ".jpg", "JPEG", quality=95)
+    img.save(base + ".jpeg", "JPEG", quality=95)
     img.save(base + ".png", "PNG")
-    print(f"Generated {base}.jpg and {base}.png")
+    print(f"Generated {base}.jpg, {base}.jpeg, and {base}.png")
 
 # Helper 3: GitHub README with Build Status Badge
 def render_github_repo_readme(output_filename):
@@ -142,15 +144,15 @@ def render_github_repo_readme(output_filename):
     
     # GitHub Nav Header
     draw.rectangle([0, 0, WIDTH, 54], fill=(255, 255, 255), outline=(208, 215, 222), width=1)
-    draw.text((30, 17), "Samarth070906", fill=(9, 105, 218), font=FONT_TITLE)
-    draw.text((150, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((30, 17), "yashdeshmukh2845", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((165, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
     draw_rounded_rect(draw, [WIDTH - 130, 13, WIDTH - 40, 41], 6, fill=(246, 248, 250), outline=(208, 215, 222))
     draw.text((WIDTH - 110, 19), "Public", fill=(87, 96, 106), font=FONT_BADGE)
 
     # Repository files summary box
     draw_rounded_rect(draw, [30, 75, WIDTH - 30, 210], 6, fill=(255, 255, 255), outline=(208, 215, 222))
     draw.rectangle([30, 75, WIDTH - 30, 115], fill=(246, 248, 250), outline=(208, 215, 222), width=1)
-    draw.text((45, 87), "Samarth070906", fill=(31, 35, 40), font=FONT_BOLD)
+    draw.text((45, 87), "yashdeshmukh2845", fill=(31, 35, 40), font=FONT_BOLD)
     draw.text((160, 87), "Initial commit for DevOps Capstone Project", fill=(87, 96, 106), font=FONT_TEXT)
     draw.text((WIDTH - 130, 87), "20be365", fill=(9, 105, 218), font=FONT_MONO)
 
@@ -195,8 +197,9 @@ def render_github_repo_readme(output_filename):
 
     base = os.path.splitext(output_filename)[0]
     img.save(base + ".jpg", "JPEG", quality=95)
+    img.save(base + ".jpeg", "JPEG", quality=95)
     img.save(base + ".png", "PNG")
-    print(f"Generated {base}.jpg and {base}.png")
+    print(f"Generated {base}.jpg, {base}.jpeg, and {base}.png")
 
 # Helper 4: GitHub Actions Workflow Run Page
 def render_github_actions_page(output_filename):
@@ -207,8 +210,8 @@ def render_github_actions_page(output_filename):
     
     # GitHub Nav Header
     draw.rectangle([0, 0, WIDTH, 54], fill=(255, 255, 255), outline=(208, 215, 222), width=1)
-    draw.text((30, 17), "Samarth070906", fill=(9, 105, 218), font=FONT_TITLE)
-    draw.text((150, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((30, 17), "yashdeshmukh2845", fill=(9, 105, 218), font=FONT_TITLE)
+    draw.text((165, 17), "/  devops-capstone-project", fill=(9, 105, 218), font=FONT_TITLE)
     
     # Actions tab active
     draw.text((30, 70), "Actions", fill=(31, 35, 40), font=FONT_TITLE)
@@ -250,8 +253,9 @@ def render_github_actions_page(output_filename):
 
     base = os.path.splitext(output_filename)[0]
     img.save(base + ".jpg", "JPEG", quality=95)
+    img.save(base + ".jpeg", "JPEG", quality=95)
     img.save(base + ".png", "PNG")
-    print(f"Generated {base}.jpg and {base}.png")
+    print(f"Generated {base}.jpg, {base}.jpeg, and {base}.png")
 
 # Helper 5: Browser Output Preview for REST service on port 8080
 def render_browser_preview(output_filename, url, json_str):
@@ -278,8 +282,9 @@ def render_browser_preview(output_filename, url, json_str):
 
     base = os.path.splitext(output_filename)[0]
     img.save(base + ".jpg", "JPEG", quality=95)
+    img.save(base + ".jpeg", "JPEG", quality=95)
     img.save(base + ".png", "PNG")
-    print(f"Generated {base}.jpg and {base}.png")
+    print(f"Generated {base}.jpg, {base}.jpeg, and {base}.png")
 
 # ----------------- EXECUTION: Generate All Required Deliverables -----------------
 
@@ -569,8 +574,9 @@ kanban_pngs = [
 for png in kanban_pngs:
     if os.path.exists(png):
         img = Image.open(png)
-        jpg_name = os.path.splitext(png)[0] + ".jpg"
-        img.convert("RGB").save(jpg_name, "JPEG", quality=95)
-        print(f"Converted {png} -> {jpg_name}")
+        base = os.path.splitext(png)[0]
+        img.convert("RGB").save(base + ".jpg", "JPEG", quality=95)
+        img.convert("RGB").save(base + ".jpeg", "JPEG", quality=95)
+        print(f"Converted {png} -> {base}.jpg and {base}.jpeg")
 
 print("=== All Deliverables Generated Successfully! ===")
